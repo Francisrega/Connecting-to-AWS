@@ -17,5 +17,8 @@ class HtmlManager:
         f.write(message)
         f.close()
     
+    def save(self):
+        with open("yourname.html", "w") as file:
+            file.write(self.message)
     create_html()
         
