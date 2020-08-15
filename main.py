@@ -1,3 +1,5 @@
+import boto3
+
 class HtmlDocument:
     def __init__(self,information):
         self.information = information
@@ -20,18 +22,30 @@ class HtmlManager:
         self.document = new_doc
     
     def save(self):
-        f = open('yourname.html','w')
+        f = open('Francis.html','w')
         f.write(self.document.information)
         f.close()
        
 
 class AWSManager:
-    pass
-#s3 = boto3.client('s3')
+    def __init__(self):
+        self.s3 = boto3.resource('s3')
   #define connections to boto3 and save file to s3
-   # def save_to_s3():   
-    #    boto3.client('s3').upload_file('helloworld.html', 'lmtd-class', 'heyclass.html')
+    def save_to_s3(self): 
+        
+        s3_client = boto3.client('s3')
+        boto3.client('s3').upload_file('Francis.html', 'lmtd-class', 'Francis.html')
 
-    manager = HtmlManager()
-    manager.create_html()
-    manager.save()
+    def listBucketFile(self, bucketName):
+        bucket = self.s3.Bucket(bucketName)
+        files = bucket.objects.all()
+        for file in files:
+            print(file.key)
+
+manager = HtmlManager()
+manager.create_html()
+manager.save()
+
+aws = AWSManager()
+aws.save_to_s3()
+aws.listBucketFile("lmtd-class")

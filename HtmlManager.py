@@ -10,9 +10,9 @@ class HtmlManager:
         <p> Okay bye. </p>
         </body>
         </html>"""
-        new_doc = HTMLDocument(message)
+        
+        new_doc = HtmlDocument(message)
         self.document = new_doc
-        print(new_doc)
     
     def save(self):
         f = open('yourname.html','w')
