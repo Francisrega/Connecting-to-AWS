@@ -2,6 +2,7 @@ class HtmlDocument:
     def __init__(self,information):
         self.information = information
 
+
 class HtmlManager:
     def __init__(self):
         self.document = None
@@ -14,16 +15,15 @@ class HtmlManager:
         <p> Okay bye. </p>
         </body>
         </html>"""
-        new_doc = HTMLDocument(message)
+        
+        new_doc = HtmlDocument(message)
         self.document = new_doc
-        print(new_doc)
     
     def save(self):
         f = open('yourname.html','w')
         f.write(self.document.information)
         f.close()
-    
-   
+       
 
 class AWSManager:
     pass
@@ -34,4 +34,4 @@ class AWSManager:
 
     manager = HtmlManager()
     manager.create_html()
-    manager.save_html_file()
+    manager.save()
