@@ -1,11 +1,12 @@
 class HtmlManager:
 
-    def create_html(self):
+    def create_html():
         f = open('yourname.html','w')
         message = """<html>
-        <head>Welp </head>
-        <h1> Python</h1>
-        <body><p>YEERRRRR</p>
+        <head>YERRRRRRR</head>
+        <h1>I hope this works </h1>
+        <body><p>Howdy. ..</p>
+        <p> Okay bye. </p>
         </body>
         </html>"""
 
